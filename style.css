@@ -6,14 +6,14 @@ html {
 
 body {
 	width: 100%;
-	height: 50%;
+	height: 10%;
 	background: white;
 	/*background:radial-gradient(#F8A4D8, #6C63FF);*/
 	/*background-image: //insert image link here*/
 }
 
 .visualizer {
-  height: 200px;
+  height: 500px;
 }
 
 h1 {

@@ -4,8 +4,8 @@ var stream;
 
 //audio nodes configuration
 var analyser = audioCtx.createAnalyser();
-analyser.minDecibels = -100;
-analyser.maxDecibels = -1;
+analyser.minDecibels = -75;
+analyser.maxDecibels = 1;
 analyser.smoothingTimeConstant = 0.75;
 
 var gain = audioCtx.createGain();
@@ -46,40 +46,41 @@ if (navigator.getUserMedia) {
       }
    );
 } else {
-   console.log('getUserMedia cant use your browser!');
+   console.log('getUserMedia cant be used in your browser!');
 }
 
 function visualize() {
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
 
-    analyser.fftSize = 256;
+    analyser.fftSize = 128;
     var bufferLength = analyser.frequencyBinCount;
     console.log(bufferLength);
     var dataArray = new Uint8Array(bufferLength);
 
     canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
     console.log(HEIGHT);
+    console.log(WIDTH);
 
     function draw() {
       drawVisual = requestAnimationFrame(draw);
 
       analyser.getByteFrequencyData(dataArray);
 
-      // canvasCtx.fillStyle = 'rgb(0, 0, 0)';
-      // canvasCtx.fillRect(0, 0, 120, 120);
+      canvasCtx.fillStyle = 'rgb(0, 0, 0)';
+      canvasCtx.fillRect(0, 0, 3000, 200);
       // canvasCtx.arc(75, 50, 50, 0, 2 * Math.PI);
 
-      var barWidth = (WIDTH / bufferLength * 2);
+      var barWidth = (WIDTH / bufferLength);
       var barHeight;
       var x = 0;
 
       for(var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
 
-        canvasCtx.fillStyle = 'rgb(' + (barHeight) + ',' + (barHeight+50) + ',' + (barHeight+200)+'';
-        canvasCtx.fillRect(x,HEIGHT-barHeight/2,barWidth,barHeight/2);
-        x += barWidth + 1;
+        canvasCtx.fillStyle = 'rgb(' + (barHeight+100) + ',' + (barHeight+50) + ',' + (barHeight+200)+'';
+        canvasCtx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight/4);
+        x += barWidth;
         // canvasCtx.arc(75, 50, 50, 0, 2 * Math.PI);
       }
     }
