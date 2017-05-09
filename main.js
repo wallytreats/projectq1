@@ -1,3 +1,9 @@
+$('#mainBtn').click(function(){
+  $('#mainBtn').hide();
+  $('header').hide();
+  $('h4').hide();
+
+
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 var source;
 var stream;
@@ -5,8 +11,8 @@ var stream;
 //audio nodes configuration
 var analyser = audioCtx.createAnalyser();
 analyser.minDecibels = -75;
-analyser.maxDecibels = 1;
-analyser.smoothingTimeConstant = 0.75;
+analyser.maxDecibels = -25;
+analyser.smoothingTimeConstant = 0.95;
 
 var gain = audioCtx.createGain();
 var convolver = audioCtx.createConvolver();
@@ -18,7 +24,11 @@ var canvasCtx = canvas.getContext("2d");
 
 var intendedWidth = document.querySelector('.visualizer').clientWidth;
 
-canvas.setAttribute('width',intendedWidth);
+canvas.setAttribute('width', intendedWidth);
+
+var intendedHeight = document.querySelector('.visualizer').clientHeight;
+
+canvas.setAttribute('height', intendedHeight);
 
 var drawVisual;
 
@@ -29,15 +39,18 @@ if (navigator.getUserMedia) {
       {
          audio: true
       },
+
       // this is my success callback
       function(stream) {
-         source = audioCtx.createMediaStreamSource(stream);
-         source.connect(analyser);
-         analyser.connect(convolver);
-         convolver.connect(gain);
-         gain.connect(audioCtx.destination);
-
-      	 visualize();
+        source = audioCtx.createMediaStreamSource(stream);
+        source.connect(analyser);
+        analyser.connect(convolver);
+        convolver.connect(gain);
+        gain.connect(audioCtx.destination);
+        //show buttons on audio input confirm
+        $('.info').hide();
+        // $('#greenBtn').show();
+      	visualize();
       },
 
       //fail callback
@@ -53,23 +66,21 @@ function visualize() {
   WIDTH = canvas.width;
   HEIGHT = canvas.height;
 
+        //this is my number of bars on screen
     analyser.fftSize = 128;
     var bufferLength = analyser.frequencyBinCount;
-    console.log(bufferLength);
     var dataArray = new Uint8Array(bufferLength);
 
     canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
-    console.log(HEIGHT);
-    console.log(WIDTH);
 
     function draw() {
       drawVisual = requestAnimationFrame(draw);
 
       analyser.getByteFrequencyData(dataArray);
 
-      canvasCtx.fillStyle = 'rgb(0, 0, 0)';
-      canvasCtx.fillRect(0, 0, 3000, 200);
-      // canvasCtx.arc(75, 50, 50, 0, 2 * Math.PI);
+      canvasCtx.fillStyle = 'rgb(' + 0 +',' + 0 + ',' + 0 + ')';
+      canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+      // canvasCtx.arc(75, 50, 50, 0, 2 * Math.PI);// this will stay at top
 
       var barWidth = (WIDTH / bufferLength);
       var barHeight;
@@ -78,11 +89,19 @@ function visualize() {
       for(var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
 
-        canvasCtx.fillStyle = 'rgb(' + (barHeight+100) + ',' + (barHeight+50) + ',' + (barHeight+200)+'';
+        //default color//
+        canvasCtx.fillStyle = 'rgb(' + (barHeight+80) + ',' + (30) + ',' + (200)+'';
+      //change color//
+        // $('#greenBtn').click(function(){
+        //   canvasCtx.fillStyle = 'rgb(' + (barHeight) + ',' + (200) + ',' + (20)+'';
+        // })
+
+        //default shape//
         canvasCtx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight/4);
         x += barWidth;
-        // canvasCtx.arc(75, 50, 50, 0, 2 * Math.PI);
+          console.log(HEIGHT-barHeight);
       }
     }
   draw();
-}
+  }
+});
