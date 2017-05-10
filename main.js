@@ -14,9 +14,8 @@ analyser.minDecibels = -100;
 analyser.maxDecibels = 20;
 analyser.smoothingTimeConstant = 0.95;
 
-var gain = audioCtx.createGain();
-var convolver = audioCtx.createConvolver();
 
+var gain = audioCtx.createGain();
 
 // set up canvas for visualizer
 var canvas = document.querySelector('.visualizer');
@@ -40,8 +39,7 @@ if (navigator.getUserMedia) {
       function(stream) {
         source = audioCtx.createMediaStreamSource(stream);
         source.connect(analyser);
-        analyser.connect(convolver);
-        convolver.connect(gain);
+        analyser.connect(gain);
         gain.connect(audioCtx.destination);
         //show buttons on audio input confirm
         $('.info').hide();
@@ -89,18 +87,16 @@ $('#whiteBtn').click(function(){
   barColor = 'rgb(' + (250) + ',' + (250) + ',' + (250)+'';
 });
 $('#funBtn').click(function(event){
-  //funMode = 0;
-  console.log(this);
-  // if(canvas.height !== 0){
+  if(funMode === canvas.height){
     funMode = 0;
-  // }
-  // if(canvas.height === 0){
-  //   funMode = 150;
-  // }
+  } else {
+    funMode = 150;
+  }
 });
 $('#clearBtn').click(function(){
   visualize();
-  draw();
+  funMode = 150;
+  // draw();
 });
 
 //define color variables so they can change
@@ -123,7 +119,7 @@ function visualize() {
 //draw canvas bars
     function draw() {
       drawVisual = requestAnimationFrame(draw);
-
+console.log("worked");
       analyser.getByteFrequencyData(dataArray);
 
       canvasCtx.fillStyle = 'rgba(' + 0 +',' + 0 + ',' + 0 + ',' + 1 + ')';
