@@ -2,53 +2,51 @@
 
 body {
 	width: 100%;
-	height: 10%;
 	background: black;
-	/*background:radial-gradient(#F8A4D8, #6C63FF);*/
+	background:radial-gradient(white, black);
 	/*background-image: //insert image link here*/
 }
 
-.green {
-
-}
-
-.visualizer {
-  display: flex;
-  height: 500px;
-}
-
 h1 {
-  font-size: 5rem;
-  color: white;
+  font-size: 15rem;
+  color: black;
   font-family: Passion One;
 }
 
 h4 {
-  font-size: 2.5rem;
-  color: white;
+  font-size: 5rem;
+  color: black;
   font-family: Passion One;
 }
 
 header {
-  height: 120px;
-  background-color: black;
+  background:radial-gradient(white, black);
+}
+
+#extraHeader {
+  color: white;
 }
 
 canvas {
-  display: flex;
-  height: 70%;
-  width: 100%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  margin-bottom: -3px;
-
+  /*display: flex;*/
+  width: 100vw;
+  height: 78vh;
+  /*display: none;*/
 }
+
 .button {
   border-radius: 28px;
   text-shadow: 2px 2px 2px black;
   font-family: Passion One;
   font-size: 32px;
   padding: 40px;
+}
+
+#title{
+  font-size: 3.5rem;
+  color: white;
+  font-family: Passion One;
+  display: none;
 }
 
 #mainBtn {
@@ -68,6 +66,138 @@ canvas {
 }
 
 #greenBtn:hover {
-  background: green;
+  background: rgb(20,220,10);
   color: black;
+}
+
+#yellowBtn {
+  background: black;
+  color: white;
+  display: none;
+}
+
+#yellowBtn:hover {
+  background: rgb(250,250,0);
+  color: black;
+}
+
+#redBtn {
+  background: black;
+  color: white;
+  display: none;
+}
+
+#redBtn:hover {
+  background: red;
+  color: black;
+}
+
+#blueBtn {
+  background: black;
+  color: white;
+  display: none;
+}
+
+#blueBtn:hover {
+  background: rgb(0,25,250);
+  color: black;
+}
+
+#purpleBtn {
+  background: black;
+  color: white;
+  display: none;
+}
+
+#purpleBtn:hover {
+  background: rgb(220,60,240);
+  color: black;
+}
+
+#whiteBtn {
+  background: black;
+  color: white;
+  display: none;
+}
+
+#whiteBtn:hover {
+  background: white;
+  color: black;
+}
+
+#funBtn {
+  background: black;
+  color: white;
+  display: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#funBtn:hover {
+  /*background: white;*/
+  color: black;
+  background: -moz-linear-gradient( top ,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(255, 255, 0, 1) 15%,
+          rgba(0, 255, 0, 1) 30%,
+          rgba(0, 255, 255, 1) 50%,
+          rgba(0, 0, 255, 1) 65%,
+          rgba(255, 0, 255, 1) 80%,
+          rgba(255, 0, 0, 1) 100%);
+background: -webkit-gradient(linear,  left top,  left bottom,
+          color-stop(0%, rgba(255, 0, 0, 1)),
+          color-stop(15%, rgba(255, 255, 0, 1)),
+          color-stop(30%, rgba(0, 255, 0, 1)),
+          color-stop(50%, rgba(0, 255, 255, 1)),
+          color-stop(65%, rgba(0, 0, 255, 1)),
+          color-stop(80%, rgba(255, 0, 255, 1)),
+          color-stop(100%, rgba(255, 0, 0, 1)));
+}
+
+.colorP {
+  font-size: 3.5rem;
+  color: white;
+  font-family: Passion One;
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 0px;
+}
+
+.colorG {
+
+}
+
+a {
+  color: black;
+}
+
+#clearBtn {
+  background: black;
+  color: white;
+  display: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#clearBtn:hover {
+  background: white;
+  color: black;
+}
+
+#copyright {
+  font-size: 2.5rem;
+  color: white;
+  font-family: Passion One;
+  padding-top: 80px;
+}
+
+#blackFont {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  #colorInfo {
+    
+    color: red;
+  }
 }

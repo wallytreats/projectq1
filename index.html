@@ -2,24 +2,73 @@
 <html lang="en-us">
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<link href="style.css" rel="stylesheet" type="text/css">
-	<script src="main.js" defer></script>
-	<title>Nick's Visualizer</title>
+
+	<title>AUDIO-VIZER</title>
 </head>
 
 <body>
-    <header>
-      <h1 class="info">AUDIO VISUALIZER</h1>
+    <header class="col-xs-12">
+      <h1 class="info text-center">AUDIO-VIZER</h1>
+      <h4 id="extraHeader" class="info text-center">Visual and Audio fun</h4>
     </header>
 
-    <h4 class="info">Click start to enable your microphone input.</h4>
+    <h4 class="info text-center">Click start to enable your microphone input.</h4>
 
-    <button id="mainBtn" class="button">CLICK TO START</button>
-    <!-- <button id="greenBtn" class="button">GREEN</button> -->
+    <button id="mainBtn" class="button center-block">CLICK TO START</button>
 
-    <canvas class="visualizer"></canvas>
+<!-- <div class="container"> -->
+<div>
+  <div class="col-xs-12 col-sm-4">
+    <div id="title"><href="./index.html">AUDIO-VIZER</div>
+  </div>
+</div>
+<div class="row">
+  <div class ="col-sm-12 col-md-12">
+    <div class="col-xs-2 col-sm-1">
+      <button id="whiteBtn" class="button"></button>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <button id="yellowBtn" class="button"></button>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <button id="redBtn" class="button"></button>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <button id="blueBtn" class="button"></button>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <button id="purpleBtn" class="button"></button>
+    </div>
+    <div class="col-xs-2 col-sm-1">
+      <button id="greenBtn" class="button"></button>
+    </div>
+    <div class="col-xs-1 col-sm-2">
+      <p class="colorP" id="colorInfo">COLORS</p>
+    </div>
+    <div class="col-xs-4 col-sm-2">
+      <button id="funBtn" class="button">FUN MODE</button>
+    </div>
+    <div class="col-xs-4 col-sm-2">
+      <button id="clearBtn" class="button">CLEAR</button>
+    </div>
+</div>
 
+<div class="col-xs-12">
+  <canvas class="visualizer"></canvas>
+</div>
+
+<div id="copyright" class="col-xs-12">
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><p id="blackFont">Created by Nick Lawrence, Using the Web Audio API.</p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</div>
+<script src="main.js"></script>
 </body>
 </html>
