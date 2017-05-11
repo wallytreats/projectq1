@@ -25,7 +25,6 @@ canvas.setAttribute('width', intendedWidth);
 var drawVisual;
 
 if (navigator.getUserMedia) {
-   console.log('getUserMedia supported.');
    navigator.getUserMedia (
       // make sure audio is a source
       {
@@ -36,7 +35,10 @@ if (navigator.getUserMedia) {
       function(stream) {
         source = audioCtx.createMediaStreamSource(stream);
         source.connect(analyser);
+
+        //this allows for capturing the audio and outputting it
         // analyser.connect(audioCtx.destination);
+
         //show buttons on audio input confirm
         $('.info').hide();
         $('#greenBtn').fadeIn();
@@ -53,8 +55,6 @@ if (navigator.getUserMedia) {
         $('#title').click(function(){
           location.reload();
         });
-
-
       	visualize();
       },
 
