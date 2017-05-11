@@ -125,6 +125,11 @@ canvas {
   color: black;
 }
 
+#whiteBtn:active {
+  background: white;
+  color: black;
+}
+
 #funBtn {
   background: black;
   color: white;

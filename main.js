@@ -10,7 +10,7 @@ var stream;
 
 //audio nodes configuration
 var analyser = audioCtx.createAnalyser();
-analyser.minDecibels = -120;
+analyser.minDecibels = -100;
 analyser.maxDecibels = 20;
 analyser.smoothingTimeConstant = 0.95;
 
