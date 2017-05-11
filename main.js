@@ -36,7 +36,7 @@ if (navigator.getUserMedia) {
       function(stream) {
         source = audioCtx.createMediaStreamSource(stream);
         source.connect(analyser);
-        analyser.connect(audioCtx.destination);
+        // analyser.connect(audioCtx.destination);
         //show buttons on audio input confirm
         $('.info').hide();
         $('#greenBtn').fadeIn();
