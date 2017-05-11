@@ -119,9 +119,9 @@ function visualize() {
         //draw canvas bars
     function draw() {
       drawVisual = requestAnimationFrame(draw);
-console.log("worked");
       analyser.getByteFrequencyData(dataArray);
 
+        
       canvasCtx.fillStyle = 'rgba(' + 0 +',' + 0 + ',' + 0 + ',' + 1 + ')';
       canvasCtx.fillRect(0, 0, WIDTH, funMode);
       var barWidth = (WIDTH / bufferLength);

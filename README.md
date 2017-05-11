@@ -5,7 +5,7 @@ Quarter 1 Project (API)
 
 > HTML & CSS, Bootstrap, JavaScript, AJAX/JSON, HTML5 Canvas
 
-> API's: Web Audio API, potentially Spotify API
+> API's: Web Audio API, Canvas API, and Media Capture and Streams API 
 
 URL to my Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2019301
 
