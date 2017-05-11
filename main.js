@@ -14,9 +14,6 @@ analyser.minDecibels = -120;
 analyser.maxDecibels = 20;
 analyser.smoothingTimeConstant = 0.95;
 
-
-var gain = audioCtx.createGain();
-
 // set up canvas for visualizer
 var canvas = document.querySelector('.visualizer');
 var canvasCtx = canvas.getContext("2d");
@@ -39,8 +36,7 @@ if (navigator.getUserMedia) {
       function(stream) {
         source = audioCtx.createMediaStreamSource(stream);
         source.connect(analyser);
-        analyser.connect(gain);
-        gain.connect(audioCtx.destination);
+        analyser.connect(audioCtx.destination);
         //show buttons on audio input confirm
         $('.info').hide();
         $('#greenBtn').fadeIn();
@@ -54,6 +50,10 @@ if (navigator.getUserMedia) {
         $('.colorP').fadeIn();
         $('#title').fadeIn();
         $('canvas').show();
+        $('#title').click(function(){
+          location.reload();
+        });
+
 
       	visualize();
       },
