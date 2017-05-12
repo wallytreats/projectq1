@@ -12,7 +12,7 @@ var stream;
 var analyser = audioCtx.createAnalyser();
 analyser.minDecibels = -120;
 analyser.maxDecibels = 20;
-analyser.smoothingTimeConstant = 0.75;
+analyser.smoothingTimeConstant = 0.85;
 
 // set up canvas for visualizer
 var canvas = document.querySelector('.visualizer');
