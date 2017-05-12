@@ -12,7 +12,7 @@ var stream;
 var analyser = audioCtx.createAnalyser();
 analyser.minDecibels = -120;
 analyser.maxDecibels = 20;
-analyser.smoothingTimeConstant = 0.95;
+analyser.smoothingTimeConstant = 0.75;
 
 // set up canvas for visualizer
 var canvas = document.querySelector('.visualizer');
@@ -121,7 +121,7 @@ function visualize() {
       drawVisual = requestAnimationFrame(draw);
       analyser.getByteFrequencyData(dataArray);
 
-        
+
       canvasCtx.fillStyle = 'rgba(' + 0 +',' + 0 + ',' + 0 + ',' + 1 + ')';
       canvasCtx.fillRect(0, 0, WIDTH, funMode);
       var barWidth = (WIDTH / bufferLength);
