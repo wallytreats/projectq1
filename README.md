@@ -1,11 +1,10 @@
 # projectq1
 Quarter 1 Project (API)
-
-> My application is an audio frequency visualizer. This will allow for an added layer of immersion into the auditory experience for the listener. Another benefit of this, is for people to learn and recognize frequency ranges that they are listening to in a fun and engaging way.
+> My application is an audio frequency visualizer. This will allow for an added layer of immersion into the auditory experience for the listener. Another benefit of this, is for people to learn and recognize frequency ranges that they are listening to in a fun and engaging way. I use the mic-input of your computer with the web audio api which then analyzes all the incoming sounds into frequencies and measures the volume of each seperate frequency then the canvas api uses those numbers as height of the bars.
 
 > HTML & CSS, Bootstrap, JavaScript, AJAX/JSON, HTML5 Canvas
 
-> API's: Web Audio API, Canvas API, and Media Capture and Streams API 
+> API's: Web Audio API, Canvas API, and Media Capture and Streams API
 
 URL to my Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2019301
 

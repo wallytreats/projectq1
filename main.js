@@ -11,7 +11,7 @@ var stream;
 //audio nodes configuration
 var analyser = audioCtx.createAnalyser();
 analyser.minDecibels = -120;
-analyser.maxDecibels = 20;
+analyser.maxDecibels = 40;
 analyser.smoothingTimeConstant = 0.85;
 
 // set up canvas for visualizer
@@ -110,7 +110,7 @@ function visualize() {
   HEIGHT = canvas.height;
 
         //this is my number of bars on screen
-    analyser.fftSize = 128;
+    analyser.fftSize = 2048;
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
 
