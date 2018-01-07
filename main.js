@@ -110,7 +110,7 @@ function visualize() {
   HEIGHT = canvas.height;
 
         //this is my number of bars on screen
-    analyser.fftSize = 2048;
+    analyser.fftSize = 256;
     var bufferLength = analyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
 
